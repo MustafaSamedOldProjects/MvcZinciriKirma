@@ -1,0 +1,52 @@
+@using System.Web
+@model Looping
+
+<table style="margin: auto auto;border: 3px solid rgba(33, 77, 158, 0.472);border-collapse: collapse;  ">
+    <tbody>
+        @for (var i = Model.günce.FirstOrDefault(); i < Model.günce.LastOrDefault(); i = i.AddDays(1))
+        {
+            @foreach (var item in Model.onbesligunler)
+            {
+
+                @if (i == item)
+                {
+                    @if (i != Model.BaslangicTarihi)
+                    {
+                        
+                        @Html.Raw("<tr style=\"border: 1px solid red; display=block;\">");
+
+                            Model.BaslangicTarihi = Model.BaslangicTarihi.AddDays(15);
+                    }
+                }
+            }
+                <th style="border: 2px solid red;">
+                    <div style="min-height: 37px; min-width: 42px; position: relative ;">
+                        <span style="color: red; font-size: 10px; position: absolute;top: 0;right: 0; ">
+                            @i.Day
+                        </span>
+                        <span style="color: turquoise; font-size: 10px;  position: absolute; bottom: 0; left: 0;">
+                            @i.Month
+                        </span>
+                        <span style="color: #53354a; font-size: 10px; position: absolute; bottom: 0; right: 0; ">
+                            @i.Year
+                        </span>
+
+                    </div>
+                </th>
+            @foreach (var item in Model.onbesligunler)
+            {
+                @if (i == item)
+                {
+                    @if (i != Model.BaslangicTarihi)
+                    {
+                        @Html.Raw("</tr>");
+                    }
+                }
+            }
+        }
+       
+
+
+    </tbody>
+
+</table>

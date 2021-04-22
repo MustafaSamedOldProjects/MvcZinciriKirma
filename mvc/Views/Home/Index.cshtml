@@ -1,0 +1,12 @@
+﻿@model tarih
+<form asp-action="Index2" method="POST" enctype="multipart/form-data">
+ <div>
+  <label for="birthdaytime">Başlangıç vakti (date and time):</label>
+  <input type="date" asp-for="Baslangıc">
+</div>
+<div>
+  <label for="birthdaytime">Bitiş vakti (date and time):</label>
+  <input type="date" asp-for="Bitis">
+</div>
+  <input type="submit">
+</form>
